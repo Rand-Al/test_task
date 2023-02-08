@@ -1,0 +1,13 @@
+<h2><%= current_user.email %></h2>
+
+<%= form_with(url: new_appointment_path, method: :get) do |f| %>
+
+  <%= f.label 'Choose category' %>
+  <%= f.select :category_id, options_from_collection_for_select(Category.all, 'id', 'title') %>
+
+  <%= f.submit "Create Appointment" %>
+<% end %>
+
+<% @categories.each do |category| %>
+  <%= link_to "#{category.title}", doctors_path(category_id: category.id)%>
+<% end %>

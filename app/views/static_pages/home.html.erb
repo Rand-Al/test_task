@@ -1,0 +1,9 @@
+<h1>StaticPages#home</h1>
+<p>Find me in app/views/static_pages/home.html.erb</p>
+<%= link_to 'log in', new_user_session_path unless user_signed_in? %>
+<% if resource %>
+  <%= form_for(:session, url: destroy_user_session_path, method: :delete, data: { turbo: false }) do |f| %>
+    <%= f.submit "Log out" %>
+  <% end %>
+<% end %>
+  
