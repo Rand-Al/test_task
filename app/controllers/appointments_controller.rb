@@ -1,9 +1,9 @@
 class AppointmentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
+  before_action :authenticate_doctor!, only: %i[new create]
   def new
     @appointment = Appointment.new 
     @doctors = Category.find(params[:category_id]).doctors 
-    
   end
   def create
     redirect_to root if current_doctor
@@ -14,6 +14,11 @@ class AppointmentsController < ApplicationController
       render :new
     end
   end
+
+  def show 
+    @appointment = Appointment.find(params[:id])
+  end
+
   def destroy
   end
 
