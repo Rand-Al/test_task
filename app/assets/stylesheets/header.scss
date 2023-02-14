@@ -16,6 +16,15 @@
       font-size: 22px;
       font-weight: 900;
       text-shadow: 1px 0px 0px #000;
+      display: flex;
+      &__link {
+        &:first-child{
+          animation: logoAnimFirst  2s ;
+        }
+        &:last-child{
+          animation: logoAnimLast  2s ;
+        }
+      }
     }
   }
   &__link {
@@ -38,4 +47,35 @@
 input.header__link {
   font-size: 18px;
   font-family: 'Lato';
+}
+
+
+@keyframes logoAnimFirst {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes logoAnimLast {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
