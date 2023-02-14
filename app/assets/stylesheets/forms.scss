@@ -1,0 +1,120 @@
+@import 'variables';
+.log-in-sign-in {
+
+  &__container {
+
+  }
+  &__title {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 900;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  &__form {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px;
+    border: 3px solid #441a05af;
+    border-radius: 6px;
+    margin-bottom: 40px;
+  }
+}
+.form-log-in-sign-in {
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    em {
+      font-weight: 600;
+    }
+    &-checkbox {
+      flex-direction: row;
+    }
+  }
+  &__wrapper {
+  }
+  &__label {
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+    
+    &-checkbox {
+      position: relative;
+      display: flex;
+      padding-left: 25px;
+      align-items: center;
+      &::before{
+        content:'';
+        width: 16px;
+        height: 16px;
+        display: flex;
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+        left: 0;
+        z-index: 2;
+        background-color: #fff;
+        border: 1px solid #441a05af;
+        border-radius: 2px;
+      }
+      &::after{
+        content:'';
+        width: 8px;
+        height: 8px;
+        display: flex;
+        position: absolute;
+        top: 5px;
+        left: 4px;
+        z-index: 3;
+        background-color: #000;
+        opacity: 0;
+        border-radius: 50%;
+      }
+    }
+  }
+  &__input {
+    width: 100%;
+    min-height: 35px;
+    border: 1px solid #441a05af;
+    border-radius: 3px;
+    padding: 10px;
+    font-family: $fontFamily;
+  }
+  &__checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+  &__actions {
+  }
+  &__button {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+.actions-form-log-in-sign-in {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-log_in {
+      justify-content: flex-start;
+      gap: 20px;
+    }
+    &-password {
+      justify-content: space-between;
+    }
+  }
+}
+.form-log-in-sign-in__checkbox:checked+.form-log-in-sign-in__label-checkbox::before {
+	
+}
+.form-log-in-sign-in__checkbox:checked+.form-log-in-sign-in__label-checkbox::after {
+	opacity: 1;
+}

@@ -1,0 +1,73 @@
+@import "variables";
+.home {
+  padding: 70px 0px;
+  &__container {
+    display: flex;
+    column-gap: 20px;
+  }
+  &__title {
+    padding-top: 30px;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 900;
+  }
+  &__text {
+    line-height: 1.2;
+    font-size: 18px;
+    text-align: center;
+    &:first-of-type {
+      margin-bottom: 10px;
+    }
+    &:last-of-type{
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+  }
+  &__item {
+    padding-bottom: 70px;
+    &:first-child{
+      display: flex;
+      flex-direction: column;
+    }
+    &:last-child{
+     border-radius: 5px;
+     img {
+      border-radius: 5px;
+     }
+    }
+  }
+  &__buttons{
+    display: flex;
+    column-gap: 20px;
+    align-self: center;
+  }
+  &__button {
+    a {
+      display: inline-flex;
+      padding: 10px 20px;
+      background-color: $mainColor;
+      color: rgba(244, 248, 0, 0.733);
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      &:hover{
+        background-color: rgba(0, 0, 0, 0.678);
+      }
+      transition: all 0.3s ease 0s;
+    }
+  }
+}
+[class*="-ibg"] {
+	position: relative;
+  padding-left: 50%;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}

@@ -1,0 +1,14 @@
+.footer {
+  background-color: #fff;
+  padding: 20px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  &__container {
+    display: flex;
+  }
+  &__item {
+    &:first-child {
+      flex: 1 1 auto;
+    }
+  }
+}

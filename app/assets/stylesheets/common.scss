@@ -1,0 +1,70 @@
+@import 'variables';
+.button {
+  display: inline-flex;
+  padding: 10px 20px;
+  background-color: $mainColor;
+  color: rgba(244, 248, 0, 0.733);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover{
+    background-color: rgba(0, 0, 0, 0.678);
+  }
+  transition: all 0.3s ease 0s;
+}
+.additional-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  &__link {
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.2s ease 0s;
+    &:hover{
+      color: rgba(0, 0, 0, 0.719);
+      text-decoration: underline;
+    }
+    &-sign_up{
+      &:hover{
+        border: 1px solid #441a05af;
+        border-radius: 5px;
+        color: #000;
+      }
+      border: 1px solid transparent;
+      padding: 5px 10px;
+    }
+  }
+}
+.notice {
+  background-color: rgba(106, 224, 38, 0.575);
+  padding: 10px 20px;
+  border-radius: 7px;
+  color: #fff;
+  text-shadow: 0px 0px 5px #000;
+  margin-top: 5px;
+}
+.alert {
+  background-color: rgba(233, 81, 10, 0.575);
+  padding: 10px 20px;
+  border-radius: 7px;
+  color: #fff;
+  text-shadow: 0px 0px 5px #000;
+  margin-top: 5px;
+}
+#error_explanation {
+  background-color: rgba(233, 81, 10, 0.575);
+  padding: 10px 20px;
+  border-radius: 7px;
+  color: #fff;
+  text-shadow: 0px 0px 5px #000;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+}

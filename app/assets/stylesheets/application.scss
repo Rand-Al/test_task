@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+@import "header";
+@import "normalize";
+@import "variables";
+@import "home";
+@import "footer";
+@import "forms";
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+body {
+  background-color: rgba(244, 248, 0, 0.438);
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex: 1 1 auto;
+}
+[class*="__container"] {
+  max-width: 1080px;
+  margin: 0 auto;
+}

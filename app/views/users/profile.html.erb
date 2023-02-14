@@ -8,6 +8,3 @@
   <%= f.submit "Create Appointment" %>
 <% end %>
 
-<% @categories.each do |category| %>
-  <%= link_to "#{category.title}", doctors_path(category_id: category.id)%>
-<% end %>

@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__item">
+      <div class="logo">
+        <%= link_to 'HealthHavenClinic', root_path %>
+      </div>
+    </div>
+
+    <div class="header__item">
+      <%= link_to 'Home', root_path, class: 'header__link' %>
+    </div>
+
+    <% unless user_signed_in? || doctor_signed_in? %>
+
+      <div class="header__item">
+        <%= link_to 'Log in as a Doctor', new_doctor_session_path, class: 'header__link' %>
+      </div>
+      <div class="header__item">
+        <%= link_to 'Log in as a Patient', new_user_session_path, class: 'header__link' %>
+      </div>
+
+    <% end %>
+
+    <% if current_user %>
+
+      <div class="header__item">
+        <%= form_for(:session, url: destroy_user_session_path, method: :delete, data: { turbo: false }) do |f| %>
+          <%= f.submit "Log out", class: 'header__link' %>
+        <% end %>
+      </div>
+
+    <% elsif current_doctor %>
+      
+        <div class="header__item">
+          <%= form_for(:session, url: destroy_doctor_session_path, method: :delete, data: { turbo: false }) do |f| %>
+            <%= f.submit "Log out" %>
+          <% end %>
+        </div>
+
+    <% end %> 
+  </div>
+
+</header>
