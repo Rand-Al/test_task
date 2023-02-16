@@ -84,6 +84,12 @@
     border-radius: 3px;
     padding: 10px;
     font-family: $fontFamily;
+    outline: none;
+    transition: all 0.2s ease 0s;
+    &:focus {
+      transform: scale(101%);
+    }
+
   }
   &__checkbox {
     position: absolute;

@@ -4,8 +4,8 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: {turbo: false}, class:"log-in-sign-in__form form-log-in-sign-in" }) do |f| %>
       <div class="form-log-in-sign-in__field">
-        <%= f.label :email, class: 'form-log-in-sign-in__label' %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-log-in-sign-in__input' %>
+        <%= f.label :phone_number, class: 'form-log-in-sign-in__label' %>
+        <%= f.text_field :phone_number, autofocus: true, autocomplete: "Phone number", class: 'form-log-in-sign-in__input' %>
       </div>
 
       <div class="form-log-in-sign-in__field">
