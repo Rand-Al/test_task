@@ -18,13 +18,10 @@
           </div>
         </div>
       <%else%>
-        <%= form_with(url: new_appointment_path, method: :get) do |f| %>
-
-          <%= f.label 'Choose category' %>
-          <%= f.select :category_id, options_from_collection_for_select(Category.all, 'id', 'title') %>
-
-          <%= f.submit "Create Appointment" %>
-        <% end %>
+        <p class="home__text">
+          To make an Appointment, please go to your <%= link_to 'profile page', profile_users_path, class: 'home__link'%> <br>
+          Thanks for using our platform!
+        </p>
       <% end %>
     </div>
     <div class="home__item-ibg home__item"">

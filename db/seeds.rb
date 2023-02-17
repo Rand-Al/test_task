@@ -1,17 +1,23 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
 30.times do |n|
-  email = "user-#{n+1}@gmail.com"
+  email = Faker::Internet.email 
   password = "12345#{n}"
-  phone_number = "+38050123122#{n}"
-  User.create(email: email, password:password, password_confirmation: password, phone_number: phone_number)
+  phone_number =  Faker::PhoneNumber.cell_phone_with_country_code
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.first_name
+  User.create(email: email, password:password, password_confirmation: password, phone_number: phone_number, first_name: first_name, last_name: last_name)
 end
 30.times do |n|
-  email = "doctor-#{n+1}@gmail.com"
+  email = Faker::Internet.email 
   password = "12345#{n}"
-  Doctor.create(email: email, password:password, password_confirmation: password)
+  phone_number =  Faker::PhoneNumber.cell_phone_with_country_code
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.first_name
+  Doctor.create(email: email, password:password, password_confirmation: password, phone_number: phone_number, first_name: first_name, last_name: last_name)
 end
 
 categories_titles = ['Family physicians', 'Psychiatrists', 'Anesthesiologists']

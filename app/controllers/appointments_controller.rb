@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!, except: :show
-  before_action :authenticate_doctor!, only: %i[new create]
   def new
     @appointment = Appointment.new 
     @doctors = Category.find(params[:category_id]).doctors 

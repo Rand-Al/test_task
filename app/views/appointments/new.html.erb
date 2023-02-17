@@ -1,10 +1,10 @@
 <%= form_with(model: @appointment) do |f| %>
 
-  <%= f.label :description %>z
+  <%= f.label :description %>
   <%= f.text_field :description %>
 
   <%= f.label :doctor %>
-  <%= f.select :doctor_id, options_from_collection_for_select(@doctors, 'id', 'email') %> 
+  <%= f.select :doctor_id, options_from_collection_for_select(@doctors, :id, :full_name) %> 
   
   <%= f.submit "Create appointment" %>
 <% end %>

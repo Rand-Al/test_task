@@ -5,12 +5,19 @@
     display: flex;
     column-gap: 20px;
   }
+  &__link {
+    font-size: 20px;
+    border-bottom: 1px solid #000;
+    transition: all 0.2s ease 0s;
+    &:hover{
+      color: rgba(0, 0, 0, 0.685);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.685);
+    }
+  }
   &__title {
     padding-top: 30px;
-    font-size: 36px;
     margin-bottom: 20px;
     text-align: center;
-    font-weight: 900;
   }
   &__text {
     line-height: 1.2;
