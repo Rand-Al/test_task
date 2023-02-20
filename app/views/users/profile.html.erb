@@ -5,7 +5,7 @@
     </h1>
     <p class="profile__description">
       Welcome to your patient profile page, <b class='profile__user'><%= full_name(current_user) %></b>! Here, you can easily manage your healthcare by booking appointments with your doctor from category you need.
-      At your profile page you able to view your personal information, medical history, and upcoming appointments.
+      At your profile page you able to view your personal information and upcoming appointments.
       If you need to make a new appointment, simply select the category you need and then push the button "Create an appointment".
     </p>
     <div class="profile__body body-profile">
@@ -28,7 +28,7 @@
           <h2 class='appointment-body-profile__title title'>
             Active Appointments
           </h2>
-          <% unless @appointments.length == 0 %>
+          <% unless @appointments.empty? %>
             <table>
               <tr>
                 <th>Description</th>
@@ -65,5 +65,3 @@
     </div>
   </div>
 </div>
-
-

@@ -1,10 +1,23 @@
-<%= form_with(model: @appointment) do |f| %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.label :doctor %>
-  <%= f.select :doctor_id, options_from_collection_for_select(@doctors, :id, :full_name) %> 
-  
-  <%= f.submit "Create appointment" %>
-<% end %>
+<div class="new-appointment">
+  <div class="new-appointment__container">
+    <h2 class="new-appointment__title title">
+      Appointment
+    </h2>
+    <p class="new-appointment__text">
+      Describe your problem and choose the doctor below
+    </p>
+    <%= form_with(model: @appointment, html: {class: 'new-appointment__form form-new-appointment' }) do |f| %>
+      <div class="form-new-appointment__field">
+        <%= f.label :description, 'Descript Problem:', class: 'form-new-appointment__label' %>
+        <%= f.text_area :description, class:'form-new-appointment__input'%>
+      </div>
+      <div class="form-new-appointment__field">
+        <%= f.label :doctor, 'Chose Doctor:', class: 'form-new-appointment__label' %>
+        <%= f.select :doctor_id, options_from_collection_for_select(@doctors, :id, :full_name) %> 
+      </div>
+      <div class="form-new-appointment__field">
+        <%= f.submit "Create appointment", class: 'form-new-appointment__button button' %>
+      </div>
+    <% end %>
+  </div>
+</div>
