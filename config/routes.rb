@@ -9,4 +9,9 @@ Rails.application.routes.draw do
       get :profile
     end 
   end
+  resource :doctors, only: %i[show edit] do 
+    member do
+      get :profile
+    end 
+  end
 end

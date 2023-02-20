@@ -33,10 +33,12 @@
 
 
     <% elsif current_doctor %>
-      
+        <div class="header__item">
+          <%= link_to 'Profile', profile_doctors_path, class: 'header__link' %>
+        </div>
         <div class="header__item">
           <%= form_for(:session, url: destroy_doctor_session_path, method: :delete, data: { turbo: false }) do |f| %>
-            <%= f.submit "Log out" %>
+            <%= f.submit "Log out", class: 'header__link' %>
           <% end %>
         </div>
 

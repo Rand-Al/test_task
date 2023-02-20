@@ -17,10 +17,15 @@
             <%= link_to 'Log In', new_user_session_path%>
           </div>
         </div>
-      <%else%>
+      <% end %>
+      <% if user_signed_in? %>
         <p class="home__text">
           To make an Appointment, please go to your <%= link_to 'profile page', profile_users_path, class: 'home__link'%> <br>
           Thanks for using our platform!
+        </p>
+      <% elsif doctor_signed_in? %>
+        <p class="home__text">
+          Welcome Dr.<%= full_name(current_doctor)%>! Thanks for using our platform! To see your new appointments go to your <%= link_to 'profile page', profile_doctors_path, class: 'home__link'%>
         </p>
       <% end %>
     </div>
