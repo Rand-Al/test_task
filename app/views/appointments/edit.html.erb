@@ -1,0 +1,17 @@
+<div class="new-appointment">
+  <div class="new-appointment__container">
+    <h2 class="new-appointment__title title">
+      Appointment
+    </h2>
+    <%= form_with(model: @appointment, method: :put, html: {class: 'new-appointment__form form-new-appointment' }) do |f| %>
+      <div class="form-new-appointment__field">
+        <%= f.label :conclusion, 'Make recomendation:', class: 'form-new-appointment__label' %>
+        <%= f.text_area :conclusion, class:'form-new-appointment__input'%>
+      </div>
+        <%= f.hidden_field :active, value: false %>
+      <div class="form-new-appointment__field">
+        <%= f.submit "Make recomendation", class: 'form-new-appointment__button button' %>
+      </div>
+    <% end %>
+  </div>
+</div>

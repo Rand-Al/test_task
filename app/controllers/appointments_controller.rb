@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!, except: %i[ show edit update ]
   def new
     @appointment = Appointment.new 
     @doctors = Category.find(params[:category_id]).doctors 
@@ -11,6 +11,21 @@ class AppointmentsController < ApplicationController
       redirect_to profile_users_path 
     else
       render :new
+    end
+  end
+
+  def edit 
+    @appointment = user.appointments.find(params[:id])
+  end
+
+  def update 
+    
+    @appointment = user.appointments.find(params[:id])
+    @appointment.update(appointment_params)
+    if current_doctor
+      redirect_to profile_doctors_url
+    elsif current_user
+      redirect_to current_user
     end
   end
 
@@ -27,6 +42,7 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:description, :doctor_id)
+    params.require(:appointment).permit(:description, :doctor_id, :conclusion, :active)
   end
+
 end

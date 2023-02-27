@@ -24,43 +24,71 @@
             </div>
           <% end %>
         </div>
-        <div class="appointment-body-profile__item">
-          <h2 class='appointment-body-profile__title title'>
-            Active Appointments
-          </h2>
-          <% unless @appointments.empty? %>
-            <table>
-              <tr>
-                <th>Description</th>
-                <th>Conclusion</th>
-              </tr>
-                <% @appointments.each do |ap| %>
-                  <% if ap.active %>
+        <% unless @appointments.empty?%>
+          <div class="appointment-body-profile__item right-body">
+            <div class="right-body__item">
+              <% unless @active_appointments.empty? %>
+                <h2 class='appointment-body-profile__title title'>
+                  Active Appointments
+                </h2>
+                  <table>
                     <tr>
-                      <td>
-                        <%= ap.description %>
-                      </td>
-                      <td>
-                        <% if ap.conclusion %>
-                          <%= ap.conclusion  %>
-                        <% else %>
-                            <i>The doctor has not reviewed the appointment yet.</i>
-                        <% end %>
-                        <%= form_for(:appointment, url: appointment_path(ap.id), method: :delete, data: { turbo: false }) do |f| %>
-                            <%= f.submit "delete", class: 'header__link' %>
-                        <% end %>
-                      </td>
+                      <th>Doctor</th>
+                      <th>Description</th>
+                      <th>Conclusion</th>
                     </tr>
-                  <% end %>
-                <% end %>
-            </table>
-          <% else %>
-          <div class='appointment-body-profile__plug'>
-            There is no appointments yet.
+                      <% @active_appointments.each do |ap| %>
+                          <tr>
+                            <td>
+                              <%= full_name(ap.doctor) %>
+                            </td>
+                            <td>
+                              <%= ap.description %>
+                            </td>
+                            <td>
+                              <% if ap.conclusion %>
+                                <%= ap.conclusion  %>
+                              <% else %>
+                                  <i>The doctor has not reviewed the appointment yet.</i>
+                              <% end %>
+                              <%= form_for(:appointment, url: appointment_path(ap.id), method: :delete, data: { turbo: false }) do |f| %>
+                                  <%= f.submit "delete", class: 'header__link' %>
+                              <% end %>
+                            </td>
+                          </tr>
+                      <% end %>
+                  </table>
+              <% end %>
+            </div>
+            <div class="right-body__item">
+              <% unless @resolved_appointments.empty? %>
+                <h2 class='appointment-body-profile__title title'>
+                  Resolved Appointments
+                </h2>
+                <table>
+                  <tr>
+                    <th>Doctor</th>
+                    <th>Description</th>
+                    <th>Conclusion</th>
+                  </tr>
+                    <% @resolved_appointments.each do |ap| %>
+                      <tr>
+                        <td>
+                          <%= full_name(ap.doctor) %>
+                        </td>
+                        <td>
+                          <%= ap.description %>
+                        </td>
+                        <td>
+                          <%= ap.conclusion  %>
+                        </td>
+                      </tr>
+                    <% end %>
+                </table>
+              <% end %>
+            </div>
           </div>
-           
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

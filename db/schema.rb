@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_16_215142) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_21_194839) do
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "doctor_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_215142) do
     t.string "phone_number"
     t.string "first_name"
     t.string "last_name"
+    t.text "biography"
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
   end
 

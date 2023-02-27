@@ -7,6 +7,7 @@ class DoctorsController < ApplicationController
   end
 
   def profile 
-    @appointments = current_doctor.appointments
+    @active_appointments = current_doctor.appointments.active.includes(:user)
+    @resolved_appointments = current_doctor.appointments.resolved.includes(:user)
   end
 end

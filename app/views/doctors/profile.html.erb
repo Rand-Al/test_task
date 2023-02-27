@@ -1,3 +1,83 @@
-<div class="div">
-  <%= full_name(current_doctor) %>
+<div class="doctor-profile">
+  <div class="doctor-profile__container">
+    <h1 class="doctor-profile__title title">
+      Profile
+    </h1>
+    <div class="doctor-profile__body">
+      <div class="doctor-profile__info info-doctor-profile">
+        <div class="info-doctor-profile__name">
+          <%= full_name(current_doctor) %>
+        </div>
+        <div class="info-doctor-profile__category">
+          <% current_doctor.categories.each do |category| %>
+            <%= category.title %>
+          <% end %>
+        </div>
+        <div class="info-doctor-profile__photo">
+
+        </div>
+        <div class="info-doctor-profile__biography">
+          <%= current_doctor.biography %>
+        </div>
+      </div>
+      <div class="doctor-profile__appointments appointments-doctor-profile">
+        <div class="appointments-doctor-profile__active active-appointments">
+          <% unless @active_appointments.empty? %>
+            <h2 class='appointment-body-profile__title title'>
+              Active Appointments
+            </h2>
+            <table>
+              <tr>
+                <th>Patient</th>
+                <th>Description</th>
+                <th>Recomendation</th>
+              </tr>
+                <% @active_appointments.each do |ap| %>
+                    <tr>
+                      <td class="active-appointments__name">
+                        <%= full_name(ap.user) %>
+                      </td>
+                      <td>
+                        <%= ap.description %>
+                      </td>
+                      <td>
+                        <%= link_to 'Make recommendation', edit_appointment_path(ap), class: "active-appointments__link" %>
+                        <%= ap.conclusion %>
+                      </td>
+                    </tr>
+                <% end %>
+            </table>
+          <% end %>
+        </div>
+        <div class="appointments-doctor-profile__passive passive-appointment">
+          <% unless @resolved_appointments.empty? %>
+            <h2 class='appointment-body-profile__title title'>
+              Resolved Appointments
+            </h2>
+            <table>
+              <tr>
+                <th>Patient</th>
+                <th>Description</th>
+                <th>Recomendation</th>
+              </tr>
+              <% @resolved_appointments.each do |ap| %>
+                  <tr>
+                    <td>
+                      <%= full_name(ap.user) %>
+                    </td>
+                    <td>
+                      <%= ap.description %>
+                    </td>
+                    <td>
+                      <%= ap.conclusion %>
+                    </td>
+                  </tr>
+              <% end %>
+
+            </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

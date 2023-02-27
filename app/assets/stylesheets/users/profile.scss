@@ -52,11 +52,7 @@
   &__appoint {
 
   }
-  &__plug{
-    font-size: 20px;
-    font-style: italic;
-    text-align: center;
-  }
+  
 }
 .form-appointment {
   margin: 0 auto;
@@ -107,4 +103,18 @@ th {
 }
 td:first-child {
   width: 30%;
+}
+.right-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &__item {
+
+  }
+  &__plug{
+    font-size: 25px;
+    font-style: italic;
+    text-align: center;
+    align-self: center;
+  }
 }

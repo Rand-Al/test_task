@@ -1,0 +1,64 @@
+.doctor-profile {
+  margin-bottom: 40px;
+  &__container {
+
+  }
+  &__title {
+    margin-top: 40px;
+    text-align: center;
+  }
+  &__body {
+    display: flex;
+    gap: 20px;
+  }
+  &__info {
+    flex-basis: 500px;
+
+  }
+  &__appointments{
+    flex: 1 1 auto;
+
+  }
+}
+.info-doctor-profile {
+  &__name {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  &__category {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  &__photo {
+
+  }
+  &__biography {
+    line-height: 1.2;
+    font-size: 17px;
+  }
+
+}
+.appointments-doctor-profile {
+  &__active {
+
+  }
+  &__passive {
+
+  }
+}
+.active-appointments {
+  &__name {
+    
+  }
+  &__link {
+    font-weight: 500;
+    text-decoration: underline !important;
+    font-weight: 600;
+    transition: all 0.2s ease 0s;
+    &:hover{
+      color: rgba(0, 0, 0, 0.658);
+    }
+  }
+}
